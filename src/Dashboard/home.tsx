@@ -63,7 +63,7 @@ const Home = () => {
                         "rgba(0, 0, 255, 1)"
                     }}
                     transition={{ duration: 2, ease: "easeInOut" }}
-                    onAnimationComplete={() => window.location.href = `/${selected?.toLowerCase()}`}
+                    onAnimationComplete={() => window.location.href = `/#/${selected?.toLowerCase()}`}
                 />
             )}
         </div>
