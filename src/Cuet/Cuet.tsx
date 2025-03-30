@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Neet = ()=>{
+const Cuet = ()=>{
     const [items,setItem] = useState<string|null>(null)
     const navigate = useNavigate();
     const handleClick = (itemk:string)=>{
@@ -31,4 +31,4 @@ const Neet = ()=>{
         </div>
     )
 }
-export default Neet;
+export default Cuet;
