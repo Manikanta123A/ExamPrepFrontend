@@ -8,6 +8,7 @@ const Questions = ()=>{
     const [Questions,setQuestions] = useState<any>(null);
     const [correct,setCorrect] = useState<null|string>(null);
     const [answer,setAnswer] = useState<boolean|null>(null);
+    const [skip,setSkip] = useState<boolean>(false);
     const handleAnswer = (e:any,ans:string)=>{
         if(ans == correct){
             setAnswer(true)
@@ -30,7 +31,20 @@ const Questions = ()=>{
         } , 3500)
         return;
     }
-
+    const handleSkip = ()=>{
+        setSkip(true);
+        setTimeout(()=>{
+            setI(i+1);
+            if ( i === 9 ) {
+                navigate("/score");
+                localStorage.setItem("score", score.toString());
+                return;
+            }
+            setCorrect(Questions[i+1].correct_answer)
+            setAnswer(null);
+        } , 2500)
+        return;
+    }
     useEffect(()=>{
         let info = async()=>{
             const data = {
@@ -156,7 +170,21 @@ const Questions = ()=>{
                     <h2>{Questions[i].options[3]} </h2>
                     </div>
                 </div>
+                <div className="border border-amber-200 mt-10">
+                    <div className={`flex  w-[300px]  p-2  text-center justify-start gap-2 itmes-center`} onClick={handleSkip}>
+                    <h2>Skip This Question</h2>
+                    </div>
+                </div>
+                {
+                    skip?
+                    <div className="border border-amber-200 mt-10">
+                    <div className={`flex  w-[300px]  p-2  text-center justify-start gap-2 itmes-center`}>
+                    <h2>{correct}</h2>
+                    </div>
+                </div>:""
+                }
             </div>
+            
         </div>
     )
 }
