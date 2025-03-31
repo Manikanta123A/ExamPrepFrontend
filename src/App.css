@@ -350,7 +350,25 @@
 .smid{
   width:200px;
   border-radius: 100%;
-  border: 5px solid red;
+  animation: smidd 4s  ease-in-out infinite;
+}
+@keyframes smidd {
+  0%{
+    border: 3px solid pink;
+    opacity: 0.2;
+  }
+  25% {
+    border:10px solid red;
+    opacity: 0.6;
+  }
+  75%{
+    border: 5px solid pink;
+    opacity: 0.8;
+  }
+  100%{
+    border: 10px solid pink;
+    opacity: 1;
+  }
 }
 
 .m {
