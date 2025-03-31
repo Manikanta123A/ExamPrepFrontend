@@ -40,6 +40,7 @@ const Questions = ()=>{
                 localStorage.setItem("score", score.toString());
                 return;
             }
+            setSkip(false)
             setCorrect(Questions[i+1].correct_answer)
             setAnswer(null);
         } , 2500)
